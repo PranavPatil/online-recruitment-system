@@ -1,6 +1,6 @@
 /*****************************************************************************************/
 
-create sequence Admin_Id increment by 1 
+create sequence Admin_Id increment by 1
 /
 
 Drop table Admin
@@ -19,25 +19,25 @@ create table Admin
 
 insert into Admin values ( Admin_Id.nextval,'Pranav','Patil',
 			  'Pranav','sscl',
-                          'pran5@yahoo.com','Administrator')
+                          'pranav1234@yahoo.com','Administrator')
 /
 
 /*****************************************************************************************/
 
-create sequence User_Id increment by 1 
+create sequence User_Id increment by 1
 /
 
 Drop table Users
 /
 
-create table Users 
+create table Users
 (User_Id number(35) primary key,
  FName varchar2(20) not null,
  MName varchar2(20) not null,
  LName varchar2(20) not null,
  Login varchar2(20) not null,
  Password varchar2(15),
- Gender varchar2(3),            /* M for Male, F for Female */ 
+ Gender varchar2(3),            /* M for Male, F for Female */
  Telephone number(12),
  Address varchar(100),
  Email varchar2(30),
@@ -48,15 +48,15 @@ create table Users
 /
 
 insert into Users values ( User_Id.nextval,
-			  'Pranav','Arvind','Patil','Pranav',
-                          'passwd','M',02027468981,
-                          'HB\3-1\303 Ajmera pimpri pune',
-			  'pran5@yahoo.com','13-AUG-83','BE','Computer','1-2yrs')
+			  'Pranav','Sachin','Patil','Pranav',
+                          'passwd','M',02056788981,
+                          'Pune, India',
+			  'pranav123456@yahoo.com','23-DEC-75','BE','Production','1-2yrs')
 /
 
 insert into Table(select Attempted from Users
 		 where User_Id = UserId)
-                 values (ATTEMPT_TY()); 
+                 values (ATTEMPT_TY());
 
 
 select User_Id,FNAME,Password,N.Category_Id
@@ -120,7 +120,7 @@ nested table CatEntry store as CATEGORY_NT_TAB;
 
 insert into Table(select CatEntry from Post
 		  where Post_Id = 1)
-                  values(CATEGORY_TY(1,2),CATEGORY_TY(2,1));	
+                  values(CATEGORY_TY(1,2),CATEGORY_TY(2,1));
 
 
 select Post_Id,PostName,Aggregate,Qualification,Branch,Experience,vacancy,N.Category_Id,N.Test_Id
@@ -136,7 +136,7 @@ Table(TestQuestions.TestEntry)N where User_Id = 1 and Test_Id = 2 and N.Ques_Id 
 select N.User_Answer from TestQuestions,
 Table(TestQuestions.TestEntry)N where User_Id = 1 and Test_Id = 2 and N.Ques_Id = 18;
 
-insert into Post values 
+insert into Post values
 (1,'Manager',
 CATEGORY_NT(
  CATEGORY_TY(1,2),
@@ -145,14 +145,14 @@ CATEGORY_NT(
 50,'BE','Computer',2,4)
 /
 
-insert into Post values 
+insert into Post values
 (1,'Manager',
 CATEGORY_NT(
  CATEGORY_TY(1,2)),
 50,'BE','Computer',2,4)
 /
 
-insert into Post values 
+insert into Post values
 (2,'Tester',
 CATEGORY_NT(
  CATEGORY_TY(3,3)
@@ -162,7 +162,7 @@ CATEGORY_NT(
 
 insert into Table(select TestEntry from TestQuestions
 		  where User_Id = 1 and Test_Id = 1)
-                  values(TestQues_TY(2,4,2));	
+                  values(TestQues_TY(2,4,2));
 
 
 delete Table(select CatEntry from Post where Post_Id = 3)N;
@@ -200,7 +200,7 @@ Create table Result
 /
 
 
-insert into Result values 
+insert into Result values
 (1,1,45.45,100,'Pass',1,'27-MAY-04',
 TDATA_NT(
  TDATA_TY(1,55.45,100,'Pass'),
@@ -233,7 +233,7 @@ create or replace type TESTQUES_TY as object
 (Ques_Number number(10),
 Ques_Id number(10),
 User_Answer number(10),
-Correct_Ans number(10)    
+Correct_Ans number(10)
 )
 /
 
@@ -263,11 +263,11 @@ from TestQuestions,Table(TestQuestions.TestEntry)N where User_Id = 1 and Test_Id
 
 insert into Table(select TestEntry from TestQuestions
 		  where User_Id = 1 and Test_Id = 1)
-                  values(TestQues_TY(2,4,2));	
+                  values(TestQues_TY(2,4,2));
 
 insert into Table(select TestEntry from TestQuestions
 		 where User_Id = UserId and Test_Id = TestId)
-                 values(TestQues_TY(Ques_Number,Ques_Id,User_Answer));	
+                 values(TestQues_TY(Ques_Number,Ques_Id,User_Answer));
 
 
 Update Table(select TestEntry from TestQuestions)N set
@@ -305,7 +305,7 @@ begin
  then
      insert into Table(select TestEntry from TestQuestions
 		 where User_Id = UserId and Test_Id = TestId)
-                 values (TestQues_TY(QuesNo,Ques_Id,Ans,Correct)); 
+                 values (TestQues_TY(QuesNo,Ques_Id,Ans,Correct));
  else
      insert into TestQuestions values(UserId,Post_Id,TestId,
 		         TestQues_NT(TestQues_TY(QuesNo,Ques_Id ,Ans,Correct)));
@@ -338,7 +338,7 @@ insert into TestQuestions values(1,1,1,
 
 /*************************************************************************************************/
 
-create sequence Test_Id increment by 1 
+create sequence Test_Id increment by 1
 /
 
 create table Test (
@@ -387,16 +387,16 @@ begin
  if Typ = 'None'
  then
    select count(rownum)
-   into Quesn_Id 
+   into Quesn_Id
    from questions
-   where Category_Id = C_Id; 
+   where Category_Id = C_Id;
  else
    select count(rownum)
-   into Quesn_Id 
+   into Quesn_Id
    from questions
    where Category_Id = C_Id and Type = Typ;
  end if;
- 
+
  if no > Quesn_Id
  then
    Quesn_Id := mod(no,Quesn_Id);
@@ -404,18 +404,18 @@ begin
    Quesn_Id := no;
  end if;
 
- if Quesn_Id > 0 
+ if Quesn_Id > 0
  then
    if Typ = 'None'
    then
-      select max(Ques_Id) 
+      select max(Ques_Id)
       into Quesn_Id
       from Questions
       where Category_Id = C_Id and
       rownum < Quesn_Id + 1
       order by Ques_Id;
    else
-      select max(Ques_Id) 
+      select max(Ques_Id)
       into Quesn_Id
       from Questions
       where Category_Id = C_Id  and Type = Typ and
@@ -453,7 +453,7 @@ begin
  then
      insert into Table(select TestEntry from TestQuestions
 		 where User_Id = UserId and Test_Id = TestId)
-                 values (TestQues_TY(QuesNo,Ques_Id,Ans,Correct)); 
+                 values (TestQues_TY(QuesNo,Ques_Id,Ans,Correct));
  else
      insert into Result values(UserId,Post_Id,TestId,
 		         TestQues_NT(TestQues_TY(QuesNo,Ques_Id ,Ans,Correct)));
