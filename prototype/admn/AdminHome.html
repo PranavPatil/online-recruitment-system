@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>Admin Home Page</TITLE>
+</HEAD>
+<BODY >
+<SCRIPT language="javascript">
+<!--
+
+function sure1() {
+
+   if(confirm("This button WILL DELETE the selected test. Are you sure you want to continue?")) 
+   {
+      return true;
+   }
+
+   return false;
+}
+function sure2() {
+
+   if(confirm("This button WILL DELETE the selected category. Are you sure you want to continue?")) 
+   {
+      return true;
+   }
+
+   return false;
+}
+//-->
+</SCRIPT>
+<P>
+<TABLE cellSpacing=1 cols=4 cellPadding=1 width="50%" align=left border=0>
+  
+  <TR vAlign=center align=middle bgColor=black>
+    <TD 
+    style="VERTICAL-ALIGN: middle; BACKGROUND-COLOR: black; TEXT-ALIGN: center" 
+    colSpan=4><FONT face=Verdana size=4><STRONG 
+      style="COLOR: white; BACKGROUND-COLOR: black">Admin Home 
+      Page</STRONG></FONT></TD></TR>
+  <TR>
+    <TD colspan="4">&nbsp;</TD></TR>
+  <TR bgColor="#abcdef">
+    <TD colSpan=4>
+      <P align=left><STRONG><FONT face=Verdana 
+    size=2>Tests</FONT></STRONG></P></TD></TR>  
+  <TR>
+    <TD colspan="4"><FONT face=Tahoma size=2><IMG src="../gifs/navyblueball.gif" align=bottom border=0>
+    <A href="CreateTest.html">Create a new test</A></FONT></TD>
+  </TR>
+  <TR>
+    <FORM name=CreateEditTest action=EditTest.html >
+    <TD><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<SELECT name=selecttest> <OPTION selected>General Awareness NH, 
+        USA</OPTION> <OPTION>Safe Motor Boating Precautions</OPTION> 
+        <OPTION>Crisis Management while Boating</OPTION> <OPTION>Physical 
+        Fitness</OPTION></SELECT></TD>
+    <TD align=middle><INPUT style="WIDTH: 180px; FONT-FAMILY: sans-serif" type=submit value="Edit Test" name=EditTest width="180"></TD>
+    </FORM>
+    <FORM name=DelTest action=AdminHome.html >
+    <TD><INPUT style="WIDTH: 180px; FONT-FAMILY: sans-serif" onclick="return sure1()" type=submit hspace=0 value="Delete Test" name=DelTest width="180"></TD></FORM>
+    <TD></TD></TR>
+  
+  <TR>
+    <TD colspan="4"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<FONT face=Tahoma size=2><A href="PublishTest.html">Publish 
+      Test</A></FONT></TD>
+  </TR>
+  <TR>
+    <TD colspan="4">&nbsp;</TD>
+  </TR>
+  <TR bgColor="#abcdef">
+    <TD colSpan=4>
+      <P align=left><STRONG><FONT face=Verdana 
+      size=2>Questions</FONT></STRONG></P></TD></TR>
+  <TR>
+    <TD colspan="4"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<FONT face=Tahoma size=2><A href="AddNewTestQuestion.html">Create a 
+      new question</A></FONT></TD>
+  </TR>
+  <TR>
+    <FORM name=SearchResultForQues action=SearchResult.html >
+    <TD>
+      <P align=left><IMG src="../gifs/navyblueball.gif" align=bottom border=0>
+      <FONT face=Tahoma size=2><STRONG>Search</STRONG>&nbsp; 
+      <INPUT maxLength=45 size=26 name=searchkeywords style="WIDTH: 159px; HEIGHT: 22px"></FONT></P></TD>
+    <TD><FONT face=Tahoma size=2><STRONG>In&nbsp;</STRONG> <SELECT 
+      name=SelectCategory> <OPTION selected>General Awareness NH, USA</OPTION> 
+        <OPTION>Safe Motor Boating Precautions</OPTION> <OPTION>Crisis 
+        Management while Boating</OPTION> <OPTION>Physical 
+      Fitness</OPTION></SELECT></FONT></TD>
+    <TD><INPUT type=submit value=Go name=go></TD></FORM>
+    <TD></TD></TR>
+  <TR>
+    <TD colspan="4">&nbsp;</TD>
+  </TR>
+  <TR bgColor="#abcdef">
+    <TD colSpan=4>
+      <P align=left><STRONG><FONT face=Verdana 
+      size=2>Categories</FONT></STRONG></P></TD></TR>
+  <TR>
+    <TD colspan="4"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<FONT face=Tahoma size=2><A href="CreateCategory.html">Create a 
+      new category</A></FONT></TD></TR>
+  <TR>
+    <FORM name=CreateEditCat action=CategoryHome2.html >
+    <TD><IMG src="../gifs/navyblueball.gif" align=bottom border=0>
+    <SELECT name=SelectCategory> 
+		<OPTION selected>Ministry Officials (DOS), NH</OPTION>		
+	</SELECT>
+	</TD>
+    <TD align=middle><INPUT style="WIDTH: 180px; FONT-FAMILY: sans-serif" type=submit value="Edit Category" name=EditCategory width="180"></TD></FORM>
+    <FORM name=DelCat action=AdminHome.html >
+    <TD><INPUT style="WIDTH: 180px; FONT-FAMILY: sans-serif" onclick="return sure2()" type=submit value="Delete Category" name=DelCategory width="180"></TD></FORM>
+    <TD></TD></TR>
+  <TR>
+    <TD colspan="4">&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD colspan="4"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<FONT face=Verdana size=2><STRONG><A style="COLOR: blue" href="LoginScreen.html" >Log 
+      out</A></STRONG></FONT></TD>
+  </TR></TABLE>
+	<BR>&nbsp;</P>
+<P>&nbsp;</P>
+<P><BR>&nbsp;</P>
+	
+
+</BODY>
+</HTML>

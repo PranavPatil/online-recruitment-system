@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>Test Home</TITLE>
+</HEAD>
+<BODY>
+<SCRIPT language="javascript">
+<!--
+
+function sure() {
+
+   if(confirm("This button WILL DELETE the selected test. Are you sure you want to continue?")) 
+   {
+      return true;
+   }
+
+   return false;
+}
+//-->
+</script>
+	<BR><BR>
+	<H2> <u>Test Home</u></H2>
+	<BR><BR>
+	
+	<H4> <A HREF="CreateTest.html">Create Test </A></H4>
+	
+	<table>
+	<tr><H4>
+	<FORM NAME="EditTest" ACTION="CreateTest.html" >
+		<td VALIGN="BASELINE"> <SELECT  name="selecttest">
+			<OPTION SELECTED> None
+			<OPTION> Test One			
+			<OPTION> Test Two
+			</SELECT>
+		</td>			
+		<td>
+		<Input name="EditTest" type="submit" value="Edit Test">
+		</td>
+	</FORM>
+	<FORM NAME="DelTest" ACTION="TestHome.html" >	
+		<td>
+		<Input name="DelTest" type="submit" value="Delete Test" onClick="return sure()">
+		</td>
+	</FORM>	
+	</H4></tr>
+	<tr><H4>
+	 <A href="AdminHome.html">Back to Admin Home Page</A>
+	</H4></tr>
+	</table>
+
+</BODY>
+</HTML>

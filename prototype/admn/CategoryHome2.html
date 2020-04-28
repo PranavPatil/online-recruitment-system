@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>Category Home</TITLE>
+</HEAD>
+<BODY>
+<SCRIPT language="javascript">
+<!--
+
+function sure() {
+
+   if(confirm("This button WILL DELETE the selected category. Are you sure you want to continue?")) 
+   {
+      return true;
+   }
+
+   return false;
+}
+
+function sure2() {
+
+   if(confirm("This button WILL DELETE the selected question. Are you sure you want to continue?"))
+   {
+      return true;
+   }
+
+   return false;
+}
+//-->
+</SCRIPT>
+	
+<TABLE id=TABLE1 cellSpacing=1 cellPadding=1 width="75%" align=left 
+  border=0 bordercolor="lightslategray" >
+  <TR style="BACKGROUND-COLOR: black">
+    <TD colSpan=2>
+      <P align=left><FONT face=Verdana><STRONG 
+      style="COLOR: white; BACKGROUND-COLOR: black">Category Home : <FONT size=2>category : Ministry Officials 
+      (DOS), NH</FONT> 
+      </STRONG></FONT></P></TD>
+    </TR>
+  <TR>
+    <TD colSpan=2>&nbsp;</TD></TR>
+  <TR style="BACKGROUND-COLOR: #abcdef">
+    <TD colSpan=2>
+      <P align=left><FONT face=Verdana size=2><STRONG>&nbsp;Edit Category</STRONG></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD colspan="2"><IMG src="../gifs/navyblueball.gif" align=bottom border=0><FONT face=Verdana size=2>&nbsp;<A href="EditCategory.html">Edit category details</FONT> </A></TD>
+  </TR>
+  <TR>
+    <FORM name="EditCatWithinCat" action="EditCategoryWithinCategory.html" >
+    <TD nowrap><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;
+    <SELECT name=SelectCategory style="WIDTH: 300px"> 
+		<OPTION selected>County Level - Ministry Officials (DOS), NH</OPTION>
+	</SELECT> &nbsp;&nbsp;
+	<INPUT type=submit value="Edit Category" name=EditCategory style="WIDTH: 132px; HEIGHT: 24px" size=22>
+	</TD>
+	</FORM>
+	<FORM name="DelCatWithinCat" action="CategoryHome2.html" >
+    <TD>&nbsp;<INPUT onclick="return sure()" type=submit value="Delete Category" name=DelCategory></TD>
+    </FORM>
+  </TR>  
+  <TR>
+    <TD colSpan=2>&nbsp;</TD></TR>
+  <TR style="BACKGROUND-COLOR: #abcdef">
+    <TD colSpan=2>
+      <P align=left><FONT face=Verdana size=2><STRONG>&nbsp;Child Category</STRONG></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD colspan="2"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<A href="CreateCategory2.html"><FONT face=Verdana size=2>Create a 
+      category within this category</FONT> </A></TD>
+  </TR>
+  <TR>
+    <TD colSpan=2>&nbsp;</TD></TR>
+  <TR style="BACKGROUND-COLOR: #abcdef">
+    <TD colSpan=2>
+      <P align=left><FONT face=Verdana size=2><STRONG>&nbsp;Questions</STRONG></FONT></P></TD>
+  </TR>
+  <TR>
+    <TD colspan="2"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<A href="AddNewTestQuestion2.html"><FONT face=Verdana size=2>Create a 
+      new question within this category</FONT> </A></TD>
+  </TR>
+    <TR>
+	<FORM NAME="SearchQues" ACTION="SearchResult2.html">		
+    <TD style="WIDTH: 50%" width="50%"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<FONT face=Verdana size=2>Search for a question in this 
+      category</FONT> <INPUT 
+      id=text1 style="WIDTH: 128px; HEIGHT: 20px" size=21 name=text1 value="Department of Safety, NH">&nbsp;<INPUT type=submit value=Go name=go style="WIDTH: 27px; HEIGHT: 23px" size=27> </TD>
+    <TD>&nbsp;&nbsp;</TD>
+	</FORM>
+  </TR>
+    <TR>
+  		<FORM NAME="EditQues" ACTION="EditQuestionTemplate2.html">
+		<TD  nowrap style="WIDTH: 50%" width="50%">
+		<IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<SELECT name=SelectQuestion style="WIDTH: 300px"> <OPTION selected 
+        value="">       Who is the current Director of 
+        Division of Safety Services?       </OPTION>
+        </SELECT> &nbsp;&nbsp;
+        <INPUT type=submit value="Edit Question" name=EditCategory style="WIDTH: 132px; HEIGHT: 24px" size=22>
+        </TD>
+        </FORM>        
+        <FORM NAME="DelQues" ACTION="CategoryHome2.html">
+        <TD style="WIDTH: 50%" width="50%">
+		<INPUT style="WIDTH: 148px; HEIGHT: 24px" onclick="return sure2()" type=submit size=24 value="Delete Question" name=DelQues>
+		</TD>
+		</FORM>
+
+  </TR>
+  
+      
+  <TR>
+   <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD><U></U><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<A style="COLOR: blue" href="AdminHome.html" ><b>back to admin home page</b></A></TD>
+    <TD></TD>
+  </TR>
+  </TABLE>
+  <BR>
+  <H2> <u> </u>&nbsp;</H2>
+  <BR><BR>
+	
+
+</BODY>
+</HTML>
+
