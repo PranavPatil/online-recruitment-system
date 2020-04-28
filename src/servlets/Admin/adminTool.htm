@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Admin Home Page</title>
+		<script Language="Javascript">
+function Switch(form)
+{
+  if(document.form1.RadioGroup1[0].checked)
+  {
+    if(window.confirm("You have clicked User Accounts. Do you wish to Continue "))
+    {
+      doc=open("http://localhost:8080/examples/servlets/Admin/UserUpdate.jsp","right1");
+//      document.form1.action="http://localhost:8080/examples/servlets/Admin/UserUpdate.html";
+//      document.form1.submit();
+    }    
+  }
+  else if(document.form1.RadioGroup1[1].checked)
+  {
+    if(window.confirm("You have clicked Test Option. Do you wish to Continue "))
+    {
+      doc=open("http://localhost:8080/examples/servlets/Admin/HomePage.html","right1");
+//      document.form1.action="http://localhost:8080/examples/servlets/Admin/HomePage.html";
+//      document.form1.submit();
+    }    
+  }
+  else if(document.form1.RadioGroup1[2].checked)
+  {
+    if(window.confirm("You have clicked Admin Option. Do you wish to Continue "))
+    {
+      doc=open("http://localhost:8080/examples/servlets/Admin/AdminOption.jsp","right1");
+//      document.form1.action="http://localhost:8080/examples/servlets/Admin/AdminOption.jsp";
+  //    document.form1.submit();
+    }    
+  }
+  else if(document.form1.RadioGroup1[3].checked)
+  {
+    if(window.confirm("You have clicked View Result. Do you wish to Continue "))
+    {
+      doc=open("http://localhost:8080/examples/servlets/Admin/Result.jsp","right1");
+//      document.form1.action="http://localhost:8080/examples/servlets/Admin/Result.jsp";
+  //    document.form1.submit();
+    }    
+  }
+  else if(document.form1.RadioGroup1[4].checked)
+  {
+    if(window.confirm("You have clicked View Log. Do you wish to Continue "))
+    {
+      doc=open("http://localhost:8080/examples/servlet/DisplayLog","right1");
+//      document.form1.action="http://localhost:8080/examples/servlet/DisplayLog";
+//      document.form1.submit();
+    }    
+  }
+}
+
+function UserUP(form)
+{
+ if(document.form1.RadioGroup1[0].checked)
+   doc=open("UserAccountHelp.html","right1");
+ if(document.form1.RadioGroup1[1].checked)
+   doc=open("TestOptionHelp.html","right1");
+ if(document.form1.RadioGroup1[2].checked)
+   doc=open("AdminOptionHelp.html","right1");
+ if(document.form1.RadioGroup1[3].checked)
+   doc=open("ViewResultHelp.html","right1");
+ if(document.form1.RadioGroup1[4].checked)
+   doc=open("ViewLogHelp.html","right1");
+}
+
+function logout(form)
+{
+ 
+ parent.parent.close();
+
+ window.open("MainPage.html", "" , "resizable,scrollbars,dependent=true,normal" , "" );
+ }
+</script>
+	</head>
+	<body bgcolor="ivory">
+		<form name="form1" method="post" action="">
+			<table width="737">
+				
+	<tr>
+	 <td width="729">
+		<div align="left">
+		<p>
+		</p>
+		<P><LABEL></LABEL>&nbsp;</P>
+		<P><LABEL>
+		<input type="radio" name="RadioGroup1" value="User Accounts" onclick="UserUP(this.form)"> <strong>User Accounts </strong>
+		</LABEL></P>
+		</div>
+	 </td>
+	</tr>
+	<tr>
+	 <td>
+	  <div align="left">
+	  <label>
+	  <input type="radio" name="RadioGroup1" value="Test Options"  onclick="UserUP(this.form)"> <strong>Test 
+	  Options </strong>
+	  </label>
+	  </div>
+	  </td>
+	</tr>
+	<tr>
+	 <td>
+		<div align="left">
+		<label>
+		<input type="radio" name="RadioGroup1" value="Admin Accounts" onclick="UserUP(this.form)">
+	    <strong>Admin 
+		Accounts </strong>
+		</label>
+		</div>
+	 </td>
+	</tr>
+	<tr>
+	  <td><div align="left"><label><input type="radio" name="RadioGroup1" value="View Result" ID="Radio1" onclick="UserUP(this.form)"> <strong>View 
+	    	Result </strong>
+		 	</label>
+			</div>
+			</td>
+	</tr>
+	<tr>
+		<td><div align="left"><label><input type="radio" name="RadioGroup1" value="View Log" ID="Radio2" onclick="UserUP(this.form)"> <strong>View 
+			Log </strong>
+			</label>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="button" name="button1" value="Submit" onClick="Switch(this.form)">
+		</td>
+		</tr>
+		<TR>
+		<TD colspan="2">&nbsp;</TD>    
+		</TR>
+		<TR>
+		<TD colspan="4"><IMG src="../gifs/navyblueball.gif" align=bottom border=0>&nbsp;<FONT face=Verdana size=2><STRONG>
+			<A style="COLOR: blue" onClick="logout(this.form)" href="http://localhost:8080/examples/servlets/Admin/AdminLoginPage.html" >Log 
+		out</A></STRONG></FONT></TD>
+		</TR>
+		
+		</table>
+		</p>
+		</form>
+	</body>
+</html>

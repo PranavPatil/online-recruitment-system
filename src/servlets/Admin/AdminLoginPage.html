@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Test Admn: Login Screen</title>
+        <script language=javascript>
+        function verify(form)
+        {
+          if(document.TestAdmn.Admin_Name.value=="")
+          {
+            alert("Please! fill the Login  Feild .");
+            document.TestAdmn.Admin_Name.focus();
+          }
+
+          else if(document.TestAdmn.Admin_Passwd.value=="")
+          {
+            alert("Please! fill the Password Feild .");
+            document.TestAdmn.Admin_Passwd.focus();
+          }
+          else
+          { 
+            document.TestAdmn.submit();
+          }
+        }
+        
+        function cancel(form)
+        {
+        	doc=open("http://localhost:8080/examples/servlets/Admin/MainPage.html","right1");
+        }
+        </script>
+    </head>
+    <body bgcolor="ivory">
+<P>&nbsp;</P>
+<P>
+<TABLE cellSpacing=1 cellPadding=1 width="75%" align=left border=0>
+  <FORM name="TestAdmn" method=Post action="http://localhost:8080/examples/servlet/AdminLogin">
+  <TBODY>
+  <TR>
+    <TD bgcolor="##bcdde" colspan="2">
+      <P align=center><STRONG><FONT face=Verdana size=4>Test Admin 
+      Login</FONT></STRONG></P>  </TD>
+      <TD>&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+    </TR>
+  <TR>
+    <TD colspan="2">&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD><FONT 
+      ><FONT><FONT><FONT><FONT face=Arial><FONT><STRONG>Login</STRONG></FONT>:</FONT></FONT></FONT></FONT></FONT></TD>
+    <TD><INPUT  name="Admin_Name" style="WIDTH: 158px; HEIGHT: 22px" 
+     ></TD></TR>
+  <TR>
+    <TD><FONT face=Arial><STRONG>Password:</STRONG></FONT></TD>
+    <TD><INPUT  type=password name="Admin_Passwd" style="WIDTH: 157px; HEIGHT: 22px" 
+      size=21></TD></TR>
+  <TR>
+    <TD colspan="2">&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD></TD>
+    <TD><INPUT type=button value=Submit onclick="verify(this.form)">&nbsp;
+    <INPUT type=reset value=Reset></TD>
+    <td><INPUT type=button value="Cancel" onclick="cancel(this.form)"></td></tr>
+  </FORM></TBODY>  
+  </TABLE></P>
+
+
+     </body>
+</html>

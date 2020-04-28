@@ -1,0 +1,107 @@
+<HTML>
+<head>
+<title>Test User: Login Screen</title>
+<script language=javascript>
+
+
+ function verify(form)
+ {
+  if(filled(this.form)==true)
+  {
+     document.UserLoginPage.action="http://localhost:8080/examples/servlet/UserLogin";
+     document.UserLoginPage.submit();
+  }   
+ }
+
+
+ function filled(form)
+ {  
+  if(document.UserLoginPage.Usr_Name.value=="")
+  {
+    alert("Enter Your Name");
+    document.UserLoginPage.Usr_Name.focus();
+    return false;
+  }  
+  if(document.UserLoginPage.Usr_Passwd.value=="")
+  {
+    alert("Enter Your Password.");
+    document.UserLoginPage.Usr_Passwd.focus();
+    return false;
+  }  
+  else
+  return true;  
+ }
+       
+ function cancel(form)
+ {       
+   parent.parent.close();
+   window.open("../Admin/MainPage.html", "" , "resizable,scrollbars,dependent=true,normal" , "" );    
+   //document.UserLoginPage.action="http://localhost:8080/examples/servlets/Admin/MainPage.html";
+   //document.UserLoginPage.submit();         
+ }
+        
+</script>
+</head>
+
+<BODY text="#000000" bgcolor="ivory">        
+ <TABLE width="500" border="0" align=left style="VERTICAL-ALIGN: top">
+ 	
+   <tr>
+       <td align="middle" valign="center" bgcolor="#abcdef"><b>
+          <font size="2" face="Arial">User Login Page: Test Taker Login</font>
+          </b>
+       </td>
+   </tr>
+ 
+   <tr>
+       <td align="middle"><%% ERROR_MSG %%>
+       </td>
+   </tr>
+   <tr>
+       <td align="middle" valign="top">
+       	                                
+          <FORM method="post" name="UserLoginPage" action="http://127.0.0.1:8080/examples/servlet/UserLogin" >
+          <P>&nbsp;</P>
+          <P align=left><STRONG>For New 
+            Users:</STRONG>          
+                         
+          </P>
+          <P align=left><A href="http://localhost:8080/examples/servlets/User/UserRegistrationPage.html">Click</A> for new registration.</P>
+          <P align=left><STRONG>For Existing Users:</STRONG></P>
+          <P align=left>Please enter your login name and password if you wish 
+           to take the test now.</P>
+          <P align=left>
+          	
+          <TABLE cellSpacing=1 border=0 cellPadding=1 width="75%" align=left 
+              >
+              <TR>
+                <TD><FONT>Login Name:</FONT></TD>
+                <TD><INPUT name="Usr_Name" size = 25></TD></TR>
+              <TR>
+                <TD><FONT>Password:</FONT></TD>
+                <TD><INPUT type=password name="Usr_Passwd" size = 25></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD>&nbsp;</TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><INPUT type="button" value=Login onClick="verify(this.form)">
+                	 &nbsp;
+                	<INPUT type=reset value=Reset>
+			 &nbsp;
+                	<INPUT type="button" value="&nbsp;&nbsp;Exit&nbsp;&nbsp;" 
+                	             onclick="cancel(this.form)"></TD>
+              </TR>
+           </TABLE>
+           
+           </P>
+           
+          </FORM>
+       </td>
+   </tr>
+   
+   <P></P>
+       
+ </TABLE>            
+</BODY>
+</HTML>

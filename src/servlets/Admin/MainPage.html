@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+</head>
+<SCRIPT language="javascript">
+function infoscroll(seed,looped)
+{
+  var text1  = " WELCOME TO...              ";
+  var text2  = "  ONLINE... RECRUITMENT... SYSTEM...";        
+  var msg=text1+text2;
+  var putout = " ";
+  var c   = 1;
+
+  if (looped > 10) 
+  {  window.status="<Thanks !>";  }
+  else if (seed > 100) 
+  {
+     seed--;
+     var cmd="infoscroll(" + seed + "," + looped + ")";
+     timerTwo=window.setTimeout(cmd,100);
+  }
+  else if (seed <= 100 && seed > 0) 
+  {
+    for (c=0 ; c < seed ; c++) 
+    {  putout+=" ";  }
+    putout+=msg.substring(0,100-seed);	
+    seed--;
+    var cmd="infoscroll(" + seed + "," + looped + ")";
+    window.status=putout;
+    timerTwo=window.setTimeout(cmd,100);
+  }
+  else if (seed <= 0) 
+  {
+    if (-seed < msg.length) 
+    {
+      putout+=msg.substring(-seed,msg.length);
+      seed--;
+      var cmd="infoscroll(" + seed + "," + looped + ")";
+      window.status=putout;
+      timerTwo=window.setTimeout(cmd,100); // 100
+    }
+    else 
+    {
+      window.status=" ";
+      looped += 1;
+      var cmd = "infoscroll(100," + looped + ")";
+      timerTwo=window.setTimeout(cmd,75); // 75
+    }
+  }
+}
+// -->
+
+<!--
+   infoscroll(100,1)
+// -->
+</SCRIPT>
+
+<frameset name="frame1" rows="25%,75%" bgcolor= "#99ccff" >
+  <frame  src="../Admin/Header.html" scrolling="no" noresize="no" frameborder="0" />
+	<frame  src="../Admin/header2.html"  noresize="no" frameborder="0" />
+
+</frameset>
+
+<body bgcolor="ivory" leftmargin="0" topmargin="0" >
+
+</body>
+</html>

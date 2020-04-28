@@ -1,0 +1,119 @@
+<%@ page contentType="text/html" %>
+<%@ page import="java.util.*,java.sql.*,java.io.*"  %>
+<%@ page import ="Data.ConnectionPool" %>
+
+<%
+   Connection con=null;
+   Statement smt=null;
+   Statement smt1=null;
+   ResultSet TData=null;
+   ResultSet user=null;
+
+   
+        ConnectionPool pool=(ConnectionPool)getServletContext().getAttribute("ConPool") ;
+        con=pool.getConnection();
+        smt=con.createStatement();
+        smt1=con.createStatement();
+ %>
+
+<html>
+<head>
+<title>Post View</title>
+<script language=javascript>
+function start1(form)
+{ 
+  window.close();
+  window.open("welcome.html", "" , "[resizable,scrollbars,dependent=true,,toolbar]" , "" );
+
+}
+</script>
+</head>
+<body bgcolor="ivory">
+<P>
+<form action="http://localhost:8080/examples/servlet/" method="get">
+<TABLE cellSpacing=1 cellPadding=5 width="100%" align=center border=0 id=TABLE1>
+  
+  <TR vAlign=center align=middle bgColor=black>
+    <TD colSpan=6
+    style="VERTICAL-ALIGN: middle; BACKGROUND-COLOR: black; TEXT-ALIGN: center">
+    <FONT face=Verdana size=2><STRONG
+    style="COLOR: white; BACKGROUND-COLOR: black"> 
+    Post View 
+      </STRONG></FONT></TD></TR>
+  <TR>
+    <TD colspan="5">&nbsp;</TD></TR>
+  <TR bgColor="#abcdef">
+  <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>User ID</FONT></STRONG></P></TD>
+    <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>User Name</FONT></STRONG></P></TD>
+    <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>Percentage</FONT></STRONG></P></TD>
+    <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>Qualification</FONT></STRONG></P></TD>
+    <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>Experience</FONT></STRONG></P></TD>
+     <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>Post</FONT></STRONG></P></TD>
+      <TD>
+      <P align=center><STRONG><FONT face=Verdana size=1>Date</FONT></STRONG></P></TD>
+  </TR>
+  
+  <% 
+     TData=smt.executeQuery("select * from selected");
+
+     while(TData.next())
+          {
+			 out.print("<TR>");
+			 out.print("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			 out.print(TData.getString("POST_ID"));
+			 out.print("</td>");
+			 out.print("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			 out.print(TData.getString("POSTNAME"));
+			 out.print("</td>");
+
+			 out.print("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			 out.print(TData.getString("QUALIFICATION"));
+			 out.print("</td>");
+			 
+			 out.print("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			 out.print(TData.getString("EXPERIENCE"));
+			 out.print("</td>");
+			 
+			 out.print("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			 out.print(TData.getString("VACENCY"));
+			 out.print("</td>");			 
+			 
+			 out.print("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			 out.print("<input type=\"radio\" name=\"select\" checked>");
+			 out.print("</td>");
+             out.print("</TR>");
+		  }
+  %>
+			<TR>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+			</TR>
+			<TR>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+				<TD vAlign="top" width="400">&nbsp;</TD>
+			</TR>
+  			<center>
+			<tr align="right"><td><input type="Submit" name="btnSubmit" value=" Submit "></td>
+			<td><input type="button" name="btnHelp" value=" Help " onclick="open(this.form)"></td>
+			<td><input type=button value="   Help   "  onclick="start1(this.form)"></td>
+			</center>
+  </table>
+  <P></P>
+  <P></P>
+  <P></P></P>
+  </form>   
+</body>
+</html>
+    

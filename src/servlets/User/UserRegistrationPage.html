@@ -1,0 +1,396 @@
+<HTML><HEAD><TITLE>User Registration Page</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<script language="JavaScript">
+///////////////////////////////FUNCTION VALIDATE//////////////
+
+function validate()
+{
+  var flagfilled=filled(this.form)
+  if(flagfilled==true)
+  {
+    var vDate=validate_date(document.form1.dob_dd.value,document.form1.dob_mm.value,document.form1.dob_yy.value);
+     if(vDate==false)
+      {
+       alert(document.form1.dob_dd.value + "/" + document.form1.dob_mm.value + "/" + document.form1.dob_yy.value + " is not a valid date");
+       document.form1.dob_dd.focus();
+       return false;
+      }
+   
+  var mail = checkmail(document.form1.email.value);
+  if(mail==false)
+  {
+    alert("The Mail ID is not valid !!");
+    document.form1.email.focus();
+    return false;
+  }
+  }
+  if(flagfilled==true && vDate==true && mail==true)
+   return true;
+  else
+  return false;
+}
+
+///////////////////////////////// VALIDATE E-MAIL///////////////////
+
+function checkmail(emailadd)
+{
+	var result = false;
+  	var theStr = new String(emailadd);
+  	var index = theStr.indexOf("@");
+  	if (index > 0)
+  	{
+    	var pindex = theStr.indexOf(".",index);
+    	if ((pindex > index+1) && (theStr.length > pindex+2))
+		result = true;
+  	}
+  		
+  	return result;
+}
+
+//////////////////////////////// FILLED FUNCTION /////////////////////////////////
+
+function filled(form)
+{  
+  var pass1 = document.form1.passwd.value;
+  var pass2 = document.form1.passwd1.value;
+
+  if(document.form1.fname.value == "")
+  {
+   alert("Give Your First name !!");
+   document.form1.fname.focus();
+   return false;  
+  } 
+  else if(document.form1.mname.value == "")
+  {
+   alert("Give Your Middle name !!");
+   document.form1.mname.focus();
+   return false;  
+  } 
+  else if(document.form1.lname.value == "")
+  {
+   alert("Give Your Last name !!");
+   document.form1.lname.focus();
+   return false;  
+  } 
+  else if(document.form1.address.value == "")
+  {
+   alert("Give Your Address !!");
+   document.form1.address.focus();
+   return false;  
+  }
+  else if(document.form1.telephone.value == "")
+  {
+   alert("Give Your Telephone No !!");
+   document.form1.telephone.focus();
+   return false;  
+  }  
+  else if(document.form1.email.value == "")
+  {
+   alert("Give Your Email Id !!");
+   document.form1.email.focus();
+   return false;  
+  } 
+  else if(document.form1.dob_dd.value == "")
+  {
+   alert("Give Your Date of birth !!");
+   document.form1.dob_dd.focus();
+   return false;  
+  }
+  else if(document.form1.dob_mm.value == "")
+  {
+   alert("Give Your Month of birth !!");
+   document.form1.dob_mm.focus();
+   return false;  
+  }
+  else if(document.form1.dob_yy.value == "")
+  {
+   alert("Give Your Year of birth !!");
+   document.form1.dob_yy.focus();
+   return false;  
+  }
+  else if(document.form1.Qualification.value == "")
+  {
+   alert("Give Your Qualification !!");
+   document.form1.Qualification.focus();
+   return false;  
+  }
+  else if(document.form1.Branch.value == "")
+  {
+   alert("Give Your Branch !!");
+   document.form1.Branch.focus();
+   return false;  
+  }
+  else if(document.form1.Experience.value == "")
+  {
+   alert("Give Your Experience !!");
+   document.form1.Experience.focus();
+   return false;  
+  }  
+  else if(document.form1.login.value == "")
+  {
+   alert("Give Your Login name !!");
+   document.form1.login.focus();
+   return false;  
+  } 
+  else if(document.form1.passwd.value == "")
+  {
+   alert("Give Your Password !!");
+   document.form1.passwd.focus();
+   return false;  
+  } 
+  else if(document.form1.passwd.value != document.form1.passwd1.value)
+  {
+   alert("Type Your Password Again !!");
+   document.form1.passwd.value = "";
+   document.form1.passwd1.value = "";
+   document.form1.passwd.focus();
+   return false;
+  } 
+  
+  else           
+   return true;
+}
+
+//VALIDATE DATE
+function validate_date(day,month,year)
+{
+	// since jan equals one and not zero, hence thirteen elements in the array.  
+	var no_of_days_in_month = new Array(0,31,28,31,30,31,30,31,31,30,31,30,31)
+	
+	if (month >= 1 && month <= 12 && day >=  1 && day <= 31 && year >= 0)
+	{ 	
+		//Handling february, special case. 
+		if (month == 2)
+		{
+			if ( (year%4==0 && year%100 != 0) || year%400 == 0 )
+				no_of_days_in_month[month]=29
+		}
+
+		if (day >= 1 && day <= no_of_days_in_month[month])
+		{
+			return true;
+		} 
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function cancel(form)
+{
+	doc=open("http://localhost:8080/examples/servlets/User/UserLoginPage.html","right1");
+}
+
+</script>
+
+</HEAD>
+<BODY bgcolor=ivory>
+      
+  <FORM action="http://localhost:8080/examples/servlet/UserReg"  id=form1 name=form1 method="post" 
+        onsubmit="return validate()">
+   <TABLE cellSpacing=0 cellPadding=0 width=580 border=0 
+      align=left>
+        <TR>
+          <TD width=580>
+            <TABLE cellSpacing=0 cellPadding=0 width=580 border=0 align=left>
+					<TR bgColor="#abcdef">
+									<TD colSpan="2"><FONT face="Arial" color="#000000" size="-1"> <STRONG>&nbsp;&nbsp;Tell 
+											Us about Yourself</FONT></STRONG>
+									</TD>
+								</TR>
+				<TR> 
+				    
+					<TD colSpan="2"><FONT face="Arial" color="#cc0033" size="3"><pre>            Filling all the fields are compulsory</pre>
+						</FONT>
+					</TD>
+				</TR>
+				<TR>
+              <TR>
+                <TD colSpan=2>&nbsp;&nbsp; </FONT></TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>First Name &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top align=left width=400><INPUT id=fname maxLength=20 
+                  name="fname">&nbsp;</TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Middle Name &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top align=left width=400><INPUT maxLength=20 
+                  name=mname> </TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Last Name &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top width=400><INPUT maxLength=20 name=lname></TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180></FONT></TD>
+                <TD vAlign=top width=400>&nbsp; </TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Gender &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=center width=400><FONT face="ARIAL, HELVETICA" 
+                  size=-1><INPUT type=radio CHECKED value=M name=gender> 
+                  Male&nbsp;<INPUT type=radio value=F name=gender> Female 
+                  </FONT> <BR></TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180></FONT></TD>
+                <TD vAlign=top width=400>&nbsp; </TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Address &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top align=left width=400><textarea name="address"
+                 id="address" cols="17" 
+                 rows="3"></textarea>&nbsp;</TD></TR>             
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Telephone No &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top align=left width=400><INPUT maxLength=12 
+                  size="22" name=telephone> </TD></TR>              
+              <TR>
+                <TD vAlign=center align=right width=180></FONT></TD>
+                <TD vAlign=top width=400>&nbsp; </TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Email &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top align=left width=400><INPUT maxLength=30 
+                  size="22" name=email> </TD></TR>             
+              <TR>
+                <TD vAlign=center align=right width=180></FONT></TD>
+                <TD vAlign=top width=400>&nbsp; </TD></TR>
+
+              <TR>
+                <TD vAlign=center align=right width=180>
+                  <FONT  face="ARIAL, HELVETICA" size=-1>Birth Date &nbsp;&nbsp;</FONT>
+                </TD>
+			  <TD vAlign=top width=400>
+			   <SELECT	class=textboxes1 name=dob_dd>
+			   <OPTION>..date..</OPTION>
+			    <OPTION value=1>1</OPTION> <OPTION 
+		value=2>2</OPTION><OPTION value=3>3</OPTION><OPTION 
+		value=4>4</OPTION><OPTION value=5>5</OPTION> <OPTION 
+		value=6>6</OPTION><OPTION value=7>7</OPTION><OPTION 
+		value=8>8</OPTION><OPTION value=9>9</OPTION> <OPTION 
+		value=10>10</OPTION><OPTION value=11>11</OPTION><OPTION 
+		value=12>12</OPTION><OPTION value=13>13</OPTION><OPTION 
+		value=14>14</OPTION> <OPTION value=15>15</OPTION><OPTION 
+		value=16>16</OPTION><OPTION value=17>17</OPTION><OPTION 
+		value=18>18</OPTION><OPTION value=19>19</OPTION> <OPTION 
+		value=20>20</OPTION><OPTION value=21>21</OPTION><OPTION 
+		value=22>22</OPTION><OPTION value=23>23</OPTION><OPTION 
+		value=24>24</OPTION> <OPTION value=25>25</OPTION><OPTION 
+		value=26>26</OPTION><OPTION value=27>27</OPTION><OPTION 
+		value=28>28</OPTION><OPTION value=29>29</OPTION> <OPTION 
+		value=30>30</OPTION><OPTION value=31>31</OPTION></SELECT> <SELECT 
+		class=textboxes1 name=dob_mm>
+                <OPTION selected>..month..</OPTION> 
+		<OPTION value=1>January<OPTION value=2>February<OPTION
+                    value=3>March<OPTION value=4>April<OPTION value=5>May<OPTION  
+                    value=6>June<OPTION value=7>July<OPTION value=8>August<OPTION  
+                    value=9>September<OPTION value=10>October<OPTION value=11>November<OPTION  
+                    value=12>December</OPTION></SELECT> 
+                    <SELECT class=textboxes1 name=dob_yy> 
+		<OPTION selected>..year..</OPTION> <OPTION 
+		value=1975>1975</OPTION> <OPTION value=1976>1976</OPTION><OPTION 
+		value=1977>1977</OPTION><OPTION value=1978>1978</OPTION><OPTION 
+		value=1979>1979</OPTION><OPTION value=1980>1980</OPTION><OPTION 
+		value=1981>1981</OPTION><OPTION value=1982>1982</OPTION><OPTION 
+		value=1983>1983</OPTION> <OPTION value=1984>1984</OPTION><OPTION 
+		value=1985>1985</OPTION><OPTION value=1986>1986</OPTION><OPTION 
+		value=1987>1987</OPTION><OPTION value=1988>1988</OPTION><OPTION 
+		value=1989>1989</OPTION><OPTION value=1990>1990</OPTION></SELECT> </TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180></FONT></TD>
+                <TD vAlign=top width=400>&nbsp; </TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Qualification &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top width=400><SELECT name=Qualification> 
+                <OPTION value=Diploma selected>Diploma<OPTION 
+		    value=BE>B.E<OPTION value=ME>M.E<OPTION 
+		    value=BCA>BCA<OPTION value=MCA>MCA<OPTION 
+		    value=Bsc>Bsc<OPTION value=Msc>Msc<OPTION 
+		    value=MBA>MBA<OPTION value=BCom>B Com<OPTION 
+		    value=MCom>M Com<OPTION value=CA>C.A<OPTION 
+		    value=BTECH>BTech<OPTION value=MTECH>MTech<OPTION
+                    value=PHD>Ph D</OPTION></SELECT> 
+                  <FONT face="ARIAL, HELVETICA" size=-1>&nbsp;&nbsp;&nbsp; Branch &nbsp;</FONT>
+                <SELECT name=Branch> <OPTION 
+                    value=General>General<OPTION value=Computer>Computer<OPTION 
+		    value=Electronics>Electronics<OPTION value=Commerce>Commerce<OPTION 
+		    value=Management>Management<OPTION value=Science>Science<OPTION 
+		    value=Networking>Networking<OPTION value=Programming>Programming<OPTION 
+		    value=Software>Software<OPTION value=IS>Information Systems<OPTION 
+		    value=Logistics>Logistics<OPTION value=Economics>Economics<OPTION 
+		    value=Instrumentation>Instrumentation<OPTION value=Telecommunication>Telecommunication<OPTION
+                    value=Mathematics>Mathematics</OPTION></SELECT> 
+                  </TD>
+              </TR>              
+
+              <TR>
+                <TD vAlign=center align=right width=180></FONT></TD>
+                <TD vAlign=top width=400>&nbsp; </TD></TR>
+				<TR>
+					<TD vAlign="center" align="right" width="180"><FONT face="ARIAL, HELVETICA" size="-1">Experience &nbsp;&nbsp;
+						</FONT>
+					</TD>
+					<TD vAlign="top" width="400"><SELECT name="Experience" ID="Select1">
+							<OPTION value= "1" selected>
+							Fresher<OPTION value="2">
+							1-2yrs<OPTION value="3">
+							2-5yrs<OPTION value="4">
+							5-10yrs<OPTION value="5">
+								above 10yrs</OPTION>
+						</SELECT>
+						<BR>
+					</TD>
+				</TR>
+              <TR>
+                <TD width=180>&nbsp; </TD>
+                <TD vAlign=top width=400><FONT face="ARIAL, HELVETICA" 
+                  size=-2><br>Login Name should be unique</FONT></TD></TR>                
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Login Name &nbsp;&nbsp;
+                </FONT></TD>
+                <TD vAlign=top width=400><INPUT id=login maxLength=20 
+                    name="login"></TD></TR>              
+              <TR>
+                <TD width=180>&nbsp; </TD>
+                <TD vAlign=top width=400><FONT face="ARIAL, HELVETICA" 
+                  size=-2>Contains only letters (a-z)<BR>numbers (0-9) and 
+                  underscore (_) </FONT></TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Password &nbsp;&nbsp;</FONT></TD>
+                <TD vAlign=top width=400><INPUT type=password maxLength=15 
+                  name=passwd></TD></TR>
+              <TR>
+                <TD width=180>&nbsp; </TD>
+                <TD vAlign=top width=400><FONT face="ARIAL, HELVETICA" 
+                  size=-2>To ensure the security of your account, your 
+                  <BR>password should be at least four (4) characters. 
+                  </FONT></TD></TR>
+              <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>Re-Type Password &nbsp;&nbsp;
+                  </FONT><BR><BR></TD>
+                <TD vAlign=top width=400><INPUT type=password maxLength=15
+                  name=passwd1> <BR></TD></TR>
+	          <TR>
+                <TD vAlign=center align=right width=180><FONT 
+                  face="ARIAL, HELVETICA" size=-1>&nbsp; </FONT></TD>
+                <TD vAlign=top width=400 height=60><FONT 
+                  face="ARIAL, HELVETICA" size=-1>
+                  <BR><INPUT type=submit value="Register" name=submit> 
+                  <INPUT type=reset value="Reset" name=reset> 
+                  <INPUT type="button" value=" Cancel " name="Cancel" onclick="cancel(this.form)">                  
+                  </FONT><BR></TD>
+	          </TR>
+	          </TABLE> 
+		</FORM>      
+        </BODY>
+        </HTML>

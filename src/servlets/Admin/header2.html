@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Untitled</title>
+<script language=javascript>
+ function proceed(form)
+ {
+    if(document.header.select1[0].checked==true)
+    {
+      document.header.action="AdminLoginPage.html";
+      document.header.submit();
+    }
+    else if(document.header.select1[1].checked==true)
+    {
+      document.header.action="../User/Welcome.html";
+      document.header.submit();
+    }
+ }
+ 
+ function func(form)
+ {
+	parent.close();
+	window.close(); 
+ }
+</script>
+</head>
+<body bgcolor="ivory">
+ <form name=header method=post action="">
+ <table align=center>
+ <tr>
+<td>
+
+  <input type="radio" name="select1" value="admin" checked="checked" /> Administration
+	<p></p>
+  <input type="radio" name="select1" value="user" /> User
+	<p></p>
+	<input type="button"  value="Submit" name="Submit" onclick="proceed(this.form)" />
+	<input type="button"  value="Exit" name="Exit" onclick="func(this.form)" />
+
+</td>
+</tr>
+ </table>
+ </form>
+</body>
+</html>
