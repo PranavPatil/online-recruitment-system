@@ -182,7 +182,7 @@ To run the application follow as below :
    ![Start Test](images/user/StartTest.png)
 
 
-   ![Test Page](images/user/Test Page.png)
+   ![Test Page](images/user/TestPage.png)
 
 
    ![Review Test](images/user/ReviewTest.png)
