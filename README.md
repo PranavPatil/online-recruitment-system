@@ -50,6 +50,147 @@ To run the application follow as below :
 * For Admin go to "http://localhost:8080/ORS/AdminLogin.html" while for User go to "http://localhost:8080/ORS/UserLogin.html" in the browser.
 
 
+## Home Page
+
+
+   ![Home Page](images/Home.png)
+
+
+## Admin Area
+
+
+   ![Admin Login](images/admin/AdminLogin.png)
+
+
+   ![Admin Home](images/admin/AdminHome.png)
+
+
+### Admin Accounts
+
+
+   ![Admin Accounts](images/admin/AdminAccounts.png)
+
+
+   ![Create Admin](images/admin/CreateAdmin.png)
+
+
+   ![View Admins](images/admin/AdminView.png)
+
+
+   ![Admin Accessibility](images/admin/Accessibility.png)
+
+
+### Exam Management
+
+
+   ![Exam Management](images/admin/ExamManagement.png)
+
+
+   ![Post Management](images/admin/Post.png)
+
+
+   ![Create Post](images/admin/CreatePost.png)
+
+
+   ![Test Management](images/admin/Test.png)
+
+
+   ![Create Test](images/admin/CreateTest.png)
+
+
+   ![Publish Test](images/admin/Publish.png)
+
+
+   ![Question Management](images/admin/Question.png)
+
+
+   ![Create Question](images/admin/CreateQuestion.png)
+
+
+   ![Create Multiple Choice](images/admin/CreateMultipleChoice.png)
+
+
+   ![Create Multiple Answer](images/admin/CreateMultipleAnswer.png)
+
+
+   ![Create True Or False](images/admin/CreateTrueOrFalse.png)
+
+
+   ![Create True Or False](images/admin/SearchQuestions.png)
+
+
+   ![Category Management](images/admin/CategoryManagement.png)
+
+
+   ![Create Category](images/admin/CreateCategory.png)
+
+
+### Candidate Processing
+
+
+   ![View Results](images/admin/ResultView.png)
+
+
+   ![Result Details](images/admin/ResultDetails.png)
+
+
+   ![View Selected](images/admin/SelectedView.png)
+
+
+   ![View Employees](images/admin/EmpView.png)
+
+
+### System Settings
+
+
+   ![System Log](images/admin/SystemLog.png)
+
+
+### Help
+
+
+   ![Admin Help](images/admin/AdminHelp.png)
+
+
+### Credits
+
+
+   ![Credits](images/admin/Credits.png)
+
+
+## User Area
+
+
+   ![User Registration](images/user/UserReg.png)
+
+
+   ![User Login](images/user/UserLogin.png)
+
+
+   ![User Home](images/user/UserHome.png)
+
+
+   ![Post View](images/user/PostView.png)
+
+
+   ![Choose Test](images/user/ChooseTest.png)
+
+
+   ![Test Rules](images/user/TestRules.png)
+
+
+   ![Start Test](images/user/StartTest.png)
+
+
+   ![Test Page](images/user/Test Page.png)
+
+
+   ![Review Test](images/user/ReviewTest.png)
+
+
+   ![Thanks](images/user/Thanks.png)
+
+
 ## Flow Diagram
 
 
