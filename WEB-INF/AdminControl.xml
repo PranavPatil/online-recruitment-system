@@ -4,7 +4,7 @@
     <Name>HOMEPAGE</Name>
     <Class></Class>
     <Method></Method>
-    <View>Web/Home.htm</View>
+    <View>Web/Home.jsp</View>
   </Event>
   <Event>
     <Name>FIRSTPAGE</Name>
@@ -454,7 +454,7 @@
     <Name>ADHELP_MN</Name>
     <Class></Class>
     <Method></Method>
-    <View>Web/Admin/Help.jsp</View>
+    <View>Web/Admin/AdminHelp.jsp</View>
   </Event>
   <Event>
     <Name>ADCRDT_MN</Name>
@@ -472,6 +472,6 @@
     <Name>ADLOGOUT_MN</Name>
     <Class>ORS.Admin.AdminMgmt</Class>
     <Method>AdminLogout</Method>
-    <View>Web/Admin/LoginPage.html</View>
+    <View>Web/AdminLogin.jsp</View>
   </Event>
 </AllEvents>

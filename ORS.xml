@@ -1,0 +1,32 @@
+<!--
+
+    Context configuration file for the Tomcat Administration Web App
+
+    $Id: ORS.xml,v 1.3 2004/02/20 17:09:19 remm Exp $
+
+-->
+
+
+<Context path="/ORS" docBase="ORS" debug="99" privileged="true">
+
+  <!-- Uncomment this Valve to limit access to the Admin app to localhost
+   for obvious security reasons. Allow may be a comma-separated list of
+   hosts (or even regular expressions).
+  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+    allow="127.0.0.1"/>
+  -->
+
+  <Logger className="org.apache.catalina.logger.FileLogger"
+             prefix="localhost_ors_log." suffix=".txt"
+          timestamp="true"/>
+
+      <!--<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+                 debug="0" resourceName="UserDatabase"/>-->
+
+  <Realm  className="org.apache.catalina.realm.JDBCRealm" debug="3"
+          driverName="sun.jdbc.odbc.JdbcOdbcDriver"
+          connectionURL="jdbc:odbc:ORS"
+          connectionName="scott" connectionPassword="tiger"
+          userTable="users" userNameCol="Login" userCredCol="Password"
+          userRoleTable="Accessibility" roleNameCol="Designation" />
+</Context>

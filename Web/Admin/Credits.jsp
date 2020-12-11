@@ -47,7 +47,7 @@
 
     this.createLayer=createLayer;
 
-    this.scrollLayer = scrollLayer;
+    this.scrollLayer = scrollLayer; 
 
     this.scrollLoop=scrollLoop;
 
@@ -151,7 +151,7 @@
 
 <STYLE media="screen" type="text/css">
 
-    <!--
+    <!-- 
 
     P{FONT-WEIGHT: normal; FONT-SIZE: xx-small; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none; margin:3px;}
 
@@ -169,20 +169,20 @@
   <TR>
     <TD vAlign=top align=middle width="100%">
       <TABLE width=50>
-        <TBODY></TBODY></TABLE><IMG height=4 alt="" src="/ORS/Web/images/white-spacer.gif" width=732 align=top>
+        <TBODY></TBODY></TABLE><IMG height=4 alt="" src="/ORS/Web/images/white-spacer.gif" width=732 align=top> 
         <jsp:include page="AdminHeader.jsp" flush="true"/>
       <TABLE cellSpacing=0 cellPadding=0 width=848 border=0>
         <TBODY>
         <TR>
           <TD vAlign=top align=left width=200 rowSpan=2>
-            <jsp:include page="AdminPanel.jsp" flush="true"/>
+            <jsp:include page="AdminPanel.jsp" flush="true"/>            
 			<IMG height=40 alt="" src="/ORS/Web/images/spacer.gif" width=12> </TD>
           <TD vAlign=top align=right width=648 height=196>
             <DIV align=left>
             <TABLE height=94 cellSpacing=0 cellPadding=0 width=648 border=0>
               <TBODY>
               <TR>
-                <TD vAlign=center align=left><IMG height=30
+                <TD vAlign=center align=left><IMG height=30 
                   src="/ORS/Web/images/spacer.gif" width=1> </TD></TR>
               <TR>
                 <TD vAlign=center align=left>
@@ -192,17 +192,18 @@
 
                  <!--
 
-                   var a =
-                   '<h1>Dedicated To<\/h1><p><font color=#ff00ff size="2"><strong><a>My Mother<\/a></strong></font><\/p><br><br>' +
-                   '<h1>Acknowledgements<\/h1><p><a href="mailto:www.horstmann.com/">Cay S. Horstmann<\/a> :  He teaches computer science at San Jose State University. He has written 6 books on C++, Java, and Oject oriented development.' +
+                   var a = 
+                   '<h1>Dedicated To<\/h1><p><font color=#ff00ff size="2"><strong><a>My Mother : Manisha Arvind Patil<\/a></strong></font><\/p><br><br>' +
+                   '<h1>Acknowledgements<\/h1><p><a href="mailto:www.horstmann.com/">Cay S. Horstmann<\/a> :  He teaches computer science at San Jose State University. He has written 6 books on C++, Java, and Oject oriented development.' + 
                    'He is the author of book <strong>Core Java</strong> and I owe him for teaching me JAVA.<\/p>' +
-                   '<h1> <\/h1><p><a href="mailto:www.Person.com/">Gary Cornell<\/a> :  He is PhD from Brown University and has been a visiting scientist at IBM Watson Labs.' +
+                   '<h1> <\/h1><p><a href="mailto:www.Person.com/">Gary Cornell<\/a> :  He is PhD from Brown University and has been a visiting scientist at IBM Watson Labs.' + 
                    'He is the author of book <strong>Core Java</strong> and I owe him too for teaching me JAVA.<\/p>' +
-                   '<h1> <\/h1><p><a href="mailto:hall@coreservlets.com">Marty Hall<\/a> :  He is the president of coreservlets.com inc,a company that provides courses related to servlets and Jsp.' +
+                   '<h1> <\/h1><p><a href="mailto:hall@coreservlets.com">Marty Hall<\/a> :  He is the president of coreservlets.com inc,a company that provides courses related to servlets and Jsp.' + 
                    'He is the author of book <strong>Core Servlets and Jsp</strong> and I thank him for his great work.<\/p>' +
-                   '<h1> <\/h1><p><a href="mailto:brown@coreservlets.com">Larry Brown<\/a> :  He is a Senior Network Engineer and Oracle DBA in US Navy.' +
+                   '<h1> <\/h1><p><a href="mailto:brown@coreservlets.com">Larry Brown<\/a> :  He is a Senior Network Engineer and Oracle DBA in US Navy.' + 
                    'He is also the author of book <strong>Core Servlets and Jsp</strong> and I thank him for writing such a GREAT book.<\/p>' +
-                   '<h1>Developed By<\/h1><p><a href="mailto:webmaster@thesscl.com">Web Master <\/a> :  Web Designer.<\/p>';
+                   '<h1>Developed By<\/h1><p><a href="mailto:pranav_558@yahoo.com">Pranav Patil <\/a> :  Chief Project Designer, Database Administrator, Senior Software Developer, Senior Software Tester. He is a superb programmer and an expert in Application Design.' + 
+                   'He is a is an expert in Java. Other skills include J2EE, C, C#, PL\SQL and Oracle.<\/p>';
 
                    var c = new scrollerObj('c','300','500','100','500',a,'#99CCCC','#99CCCC','2','center');
 

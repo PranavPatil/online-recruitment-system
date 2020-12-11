@@ -3,7 +3,7 @@
  * @version 1.4
  *
  * Development Environment : JCreator (JDK 1.5)
- *
+ * 
  * Name of the File : Footer.jsp
  *
  * Creation/Modification History  :
@@ -23,7 +23,7 @@
 <TABLE width="70%" border="0" cellpadding="0">
   <TR>
     <TD width="30%">&nbsp;</TD>
-    <TD width="70%" vAlign=top align='middle'><SPAN class=body3>ï¿½ Sundance Software Co-operation Limited - Park Avenue, Biston.  info@thesscl.com</SPAN>
+    <TD width="70%" vAlign=top align='middle'><SPAN class=body3>© Sudeten Software Co-operation Limited - Park Avenue, Biston.  info@thesscl.com</SPAN>
     </TD>
   </TR>
 </TABLE>

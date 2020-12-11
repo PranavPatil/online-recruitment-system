@@ -4,7 +4,7 @@
     <Name>HOMEPAGE</Name>
     <Class></Class>
     <Method></Method>
-    <View>Web/Home.htm</View>
+    <View>Web/Home.jsp</View>
   </Event>
   <Event>
     <Name>FIRSTPAGE</Name>
@@ -22,7 +22,7 @@
     <Name>USLOGOUT</Name>
     <Class>ORS.User.UserMgmt</Class>
     <Method>UserLogout</Method>
-    <View>Web/User/UserLogin.html</View>
+    <View>Web/UserLogin.jsp</View>
   </Event>
   <Event>
     <Name>CUROPENG</Name>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!DOCTYPE web-app
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
-
-<web-app>
+<web-app version="2.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
     <display-name>Online Recruitment System</display-name>
     <description>Online Selection and Recruitment for Companies.</description>
@@ -16,8 +15,6 @@
    	<param-name>UserLog</param-name><param-value>/Web/Log/UserLog.dat</param-value>
     </context-param>
     
-    <!-- Define servlet-mapped and path-mapped example filters -->
-
     <filter>
         <filter-name>AdminControlFilter</filter-name>
         <filter-class>ORS.Admin.AdminControlFilter</filter-class> 
@@ -25,38 +22,55 @@
           <param-name>AdminMap</param-name><param-value>/WEB-INF/AdminControl.xml</param-value>
         </init-param>
     </filter>
-
-    <filter>
+    
+        <filter>
         <filter-name>UserControlFilter</filter-name>
         <filter-class>ORS.User.UserControlFilter</filter-class> 
         <init-param>
           <param-name>UserMap</param-name><param-value>/WEB-INF/UserControl.xml</param-value>
         </init-param>
 	</filter>
-
-    <!-- Define filter mappings for the defined filters -->
+	
+	    <!-- Define filter mappings for the defined filters -->
 
     <filter-mapping>
         <filter-name>AdminControlFilter</filter-name>
-        <url-pattern>/servlet/AdminController</url-pattern>
+        <url-pattern>/AdminController</url-pattern>
     </filter-mapping>
 
     <filter-mapping>
         <filter-name>UserControlFilter</filter-name>
-        <url-pattern>/servlet/UserController</url-pattern>
+        <url-pattern>/UserController</url-pattern>
     </filter-mapping>
 
-    <!--<filter-mapping>
-        <filter-name>Servlet Mapped Filter</filter-name>
-	<servlet-name>invoker</servlet-name>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>Path Mapped Filter</filter-name>
-	<url-pattern>/servlet/*</url-pattern>
-    </filter-mapping>-->
-    
+    <!-- The mapping for the default servlet -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
-    <!-- Define servlets that are included in the example application -->
+    <!-- The mapping for the invoker servlet 
+
+    <servlet-mapping>
+        <servlet-name>invoker</servlet-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </servlet-mapping>
+
+
+       The mapping for the JSP servlet 
+
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>*.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>*.jspx</url-pattern>
+    </servlet-mapping>
+-->
+
+    <!-- Define servlet-mapped and path-mapped example filters -->
 
     <servlet>
         <servlet-name>ORS.ConnPool.InitilizeServlet</servlet-name>
@@ -90,17 +104,15 @@
       <url-pattern>/UserController</url-pattern>
    </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>invoker</servlet-name>
-        <url-pattern>/servlet/*</url-pattern>
-    </servlet-mapping>
+
+    <!-- JSPC servlet mappings end -->
 
    <session-config>
       <session-timeout>6000</session-timeout>
    </session-config>
 
    <welcome-file-list>
-        <welcome-file>/Web/Home.htm</welcome-file>
+        <welcome-file>/Web/Home.jsp</welcome-file>
    </welcome-file-list>
   
    <error-page>
@@ -112,5 +124,64 @@
      <exception-type>java.lang.Exception</exception-type>
      <location>/Web/ErrorPage.jsp</location>
    </error-page>
+   
+   	<taglib>
+	    <taglib-uri>
+	       http://www.sscl.com/tags/ors-taglib
+	    </taglib-uri>
+	    <taglib-location>
+	       /WEB-INF/taglib/ors-taglib.tld
+	    </taglib-location>
+	</taglib>
+
+   <security-constraint>
+
+      <display-name>Admin Security Constraint</display-name>
+
+      <web-resource-collection>
+         <web-resource-name>Admin Area</web-resource-name>
+         <url-pattern>/Web/Admin/*</url-pattern>
+      </web-resource-collection>
+
+      <auth-constraint>
+         <role-name>ors</role-name>
+      </auth-constraint>
+
+   </security-constraint>
+
+   <security-constraint>
+
+      <display-name>User Security Constraint</display-name>
+
+      <web-resource-collection>
+         <web-resource-name>User Area</web-resource-name>
+         <url-pattern>/Web/User/*</url-pattern>
+      </web-resource-collection>
+
+      <auth-constraint>
+         <role-name>ors</role-name>
+      </auth-constraint>
+
+   </security-constraint>
+
+    <login-config>
+      <auth-method>FORM</auth-method>
+      <realm-name>Admin Authentication Area</realm-name>
+      <form-login-config>
+      	<form-login-page>/Web/Home.jsp</form-login-page>
+      	<form-error-page>/Web/ErrorPage.jsp</form-error-page>
+      </form-login-config>
+    </login-config>
+
+    <security-role>
+      <role-name>ors</role-name>
+    </security-role>    
+
+    <!--<env-entry>
+      <env-entry-name>minExemptions</env-entry-name>
+      <env-entry-type>java.lang.Integer</env-entry-type>
+      <env-entry-value>1</env-entry-value>
+    </env-entry>
+    -->
 
 </web-app>
