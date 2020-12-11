@@ -19,7 +19,7 @@ To run the application follow as below :
 * Install Apache Tomcat 5.0
 
 * Install Oracle 8i (or Oracle 9i) preferably in primary drive.
-  (During installation if you get "protocol adapter error" during the initialization of Database press "Retry" for re-initialization)
+  (During installation if you get "protocol adapter error" during the initialization of Database press **"Retry"** for re-initialization)
 
 * If Oracle is already installed initialize it by typing
 
@@ -29,24 +29,24 @@ To run the application follow as below :
        Type "startup" in the console to initialize the database.
 
 * Create System DSN named `ORS`.
-    * Go to Control Panel -> Performance and Maintenance -> Administrative Tools -> Data Sources(ODBC)
-    * In that click 'System DSN' and click 'Add' to create.
+    * Go to **Control Panel** `->` **Performance and Maintenance** `->` **Administrative Tools** `->` **Data Sources(ODBC)**
+    * In that click `System DSN` and click `Add` to create.
     * Select driver `Microsoft ODBC for Oracle`.
     * Type DSN name `ORS`, User name as `scott/tiger`, Description and leave Server name as blank.         
     * Click ok to create a DSN.
 
-* Log into SQL Plus of Oracle with name "scott" and password "tiger".
+* Log into SQL Plus of Oracle with name `scott` and password `tiger`.
 
 * Run the create table script from file `ORS/db-scripts/install.txt` and add entries using `ORS/db-scripts/entries.txt`.
 
 * Paste the tools.jar from `C:\Program Files\Java\jdk1.5.0_06\lib` to `C:\Program Files\Apache Software Foundation\Tomcat 5.0\common\lib`
 
-* Remove the default servlet invoker code from the application DD ie web.xml as follows.
+* Remove the default servlet invoker code from the application definition ie web.xml as follows.
 
-    <servlet-mapping>
-        <servlet-name>invoker</servlet-name>
-        <url-pattern>/servlet/*</url-pattern>
-    </servlet-mapping>
+       <servlet-mapping>
+            <servlet-name>invoker</servlet-name>
+            <url-pattern>/servlet/*</url-pattern>
+       </servlet-mapping>
 
 
 * Change the port no of server from `C:\Program Files\Apache Software Foundation\Tomcat 5.0\conf\server.xml` file.
@@ -55,7 +55,7 @@ To run the application follow as below :
 
 * Replace the WEB-INF directory and add Web folder in `C:\Program Files\Apache Group\Tomcat 5.0\webapps`.
 
-* Start Tomcat from start->Programs->Apache Tomcat 5.0 -> Start Tomcat.exe
+* Start Tomcat from **start** `->` **Programs** `->` **Apache Tomcat 5.0** `->` **Start Tomcat.exe**
 
 * For Admin go to "http://localhost:8080/ORS/AdminLogin.html" while for User go to "http://localhost:8080/ORS/UserLogin.html" in the browser.
 
